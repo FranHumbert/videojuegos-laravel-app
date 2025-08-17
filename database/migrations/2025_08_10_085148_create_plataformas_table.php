@@ -13,6 +13,8 @@ return new class extends Migration
     {
         Schema::create('plataformas', function (Blueprint $table) {
             $table->id();
+            $table->string('nombre', 100);
+            $table->string('fabricante', 150);
             $table->timestamps();
         });
     }

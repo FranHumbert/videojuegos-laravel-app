@@ -13,7 +13,12 @@ return new class extends Migration
     {
         Schema::create('videojuego_plataforma', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('id_videojuego')->constrained('videojuegos')->onDelete('cascade');
+            $table->foreignId('id_plataforma')->constrained('plataformas')->onDelete('cascade');
             $table->timestamps();
+
+            //Indice unico para evitar duplicados
+            $table->unique(['id_videojuego', 'id_plataforma']);
         });
     }
 
