@@ -9,6 +9,13 @@ use Illuminate\Http\Request;
 class HomeController extends Controller
 {
     public function index() {
-        return "Pagina principal";
+        //Estadisticas basicas
+        $totalVideojuegos = Videojuego::count();
+        $totalPlataformas = Plataforma::count();
+
+        //Ultimos 3 videojuegos agregados
+        $videojuegosRecientes = Videojuego::with('plataforma')->latest()->limit(3)->get();
+
+        return view('home', compact('totalVideojuegos', 'totalPlataformas', 'videojuegosRecientes'));
     }
 }
