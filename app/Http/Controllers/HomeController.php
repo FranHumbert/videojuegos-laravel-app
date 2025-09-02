@@ -14,7 +14,7 @@ class HomeController extends Controller
         $totalPlataformas = Plataforma::count();
 
         //Ultimos 3 videojuegos agregados
-        $videojuegosRecientes = Videojuego::with('plataforma')->latest()->limit(3)->get();
+        $videojuegosRecientes = Videojuego::with('plataformas')->latest()->limit(3)->get();
 
         return view('home', compact('totalVideojuegos', 'totalPlataformas', 'videojuegosRecientes'));
     }

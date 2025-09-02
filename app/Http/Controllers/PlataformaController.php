@@ -30,12 +30,14 @@ class PlataformaController extends Controller
      */
     public function store(Request $request)
     {
+        //dd($request->all());
         $validated = $request->validate([
             'nombre' => 'required|string|max:100|unique:plataformas,nombre',
             'fabricante' => 'required|string|max:150'
         ]);
 
         Plataforma::create($validated);
+        
 
         return redirect()->route('plataformas.index')->with('success', 'Plataforma creada con exito');
     }

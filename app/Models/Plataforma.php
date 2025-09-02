@@ -2,15 +2,17 @@
 
 namespace App\Models;
 
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
 class Plataforma extends Model
 {
-    protected $table = 'plataformas';
+    //protected $table = 'plataformas';
+    use HasFactory;
 
     protected $fillable = [
         'nombre',
-        'fabricamte'
+        'fabricante'
     ];
 
     //relacion de muchos a muchos con videojuego
