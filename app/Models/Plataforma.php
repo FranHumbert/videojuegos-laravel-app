@@ -7,8 +7,8 @@ use Illuminate\Database\Eloquent\Model;
 
 class Plataforma extends Model
 {
-    //protected $table = 'plataformas';
-    use HasFactory;
+    protected $table = 'plataformas';
+   // use HasFactory;
 
     protected $fillable = [
         'nombre',
